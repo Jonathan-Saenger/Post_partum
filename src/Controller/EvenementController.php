@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class BlogController extends AbstractController
+class EvenementController extends AbstractController
 {
-    #[Route('/blog', name: 'app_blog')]
+    #[Route('/evenement', name: 'app_evenement')]
     public function index(): Response
     {
-        return $this->render('blog.html.twig', [
-            'controller_name' => 'BlogController',
+        return $this->render('evenement.html.twig', [
+            'controller_name' => 'EvenementController',
         ]);
     }
 }
