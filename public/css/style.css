@@ -1,0 +1,64 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mention {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(85, 94, 111);
+    width: 100%;
+    color: white;
+}
+
+.mention ul {
+    margin: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+}
+
+.reseaux {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icones {
+    flex-direction: row;
+}
+
+
+/* MEDIAQUERIES FOOTER */
+
+@media screen and (min-width: 850px) {
+    .mention {
+        height: 100px;
+    }
+    
+    footer ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    footer ul li {
+        padding-left: 150px;
+        padding-right: 150px;
+        display: flex;
+        align-items: center;
+    }
+
+
+}
