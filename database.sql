@@ -66,3 +66,4 @@ ALTER TABLE Commentaire
     Id_admin INT NOT NULL, FOREIGN KEY(Id_admin) REFERENCES Admin(Id_admin),
     Id_post INT NOT NULL, FOREIGN KEY(Id_post) REFERENCES Post(Id_post),
     Id_user INT NOT NULL, FOREIGN KEY(Id_user) REFERENCES User(Id_user);
+
