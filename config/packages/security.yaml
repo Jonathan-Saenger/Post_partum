@@ -44,6 +44,10 @@ security:
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
 
+    login_throttming:
+        max_attempts: 3
+        interval: '30 minutes'
+
 
 when@test:
     security:
