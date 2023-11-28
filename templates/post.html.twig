@@ -5,11 +5,14 @@
 
 {% block body %}
 
-    {% for Post in Post %}
-        <p> Article publié le {{ Post.getJourRedaction|format_date('long', locale='fr')}} </p>
-        <h2> {{ Post.gettitre() }} </h2>
-        <p> {{ Post.getarticle( )}} </p>
-        Catégorie : {{ Post.getcategorie}}
-    {% endfor %}
+    <h2> Bonne lecture !  </h2>
+
+    <div class="article">
+            <p> Article publié le {{ Post.getJourRedaction|format_date('long', locale='fr')}} </p>
+            <h3> {{ Post.gettitre() }} </h3>
+            <p> {{ Post.getarticle( )}} </p>
+            Catégorie : {{ Post.getcategorie}}
+    </div>
 
 {% endblock %}
+

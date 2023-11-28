@@ -1,3 +1,10 @@
+/* Style des titres */
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
 .image-principale {
     width: 100%;
 }
@@ -5,6 +12,7 @@
 .image{
     width: 353px;
 }
+
 
 footer {
     display: flex;
@@ -48,6 +56,81 @@ ul li a {
     flex-direction: row;
 }
 
+/* Articles */
+.article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Articles dans le blog */
+
+.post {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.article_post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+}
+
+.article_texte {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filtre {
+    margin-left: 10%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+/* MEDIAQUERIES BLOG */ 
+@media screen and (min-width: 850px) {
+    .post {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .article_post {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width : 25%;
+    }
+
+    .article_texte {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filtre {
+        margin-left: 10%;
+        margin-top: 3%;
+        margin-bottom: 1%;
+    }
+
+}
+
+/*MEDIAQUERIES POST */
+@media screen and (min-width:850px){
+    .article {
+        display: flex;
+        flex-direction: column;
+        margin-left: 29%;
+        margin-right: 29%;
+        align-items: center;
+    }
+}
 
 /* MEDIAQUERIES FOOTER */
 
@@ -67,6 +150,7 @@ ul li a {
         display: flex;
         align-items: center;
     }
+
 }
 
 
