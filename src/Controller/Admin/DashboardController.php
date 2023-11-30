@@ -12,7 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -36,5 +35,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Commentaire', 'fas fa-list', Commentaire::class);
         yield MenuItem::linkToCrud('Evenement', 'fas fa-list', Evenement::class);
         yield MenuItem::linkToCrud('User', 'fas fa-list', User::class);   
+        yield MenuItem::linkToUrl('Retour sur le site', 'fas fa-home', $this->generateUrl('app_home'));
     }
 }
