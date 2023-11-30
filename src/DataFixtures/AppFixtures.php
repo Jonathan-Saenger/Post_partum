@@ -26,9 +26,8 @@ class AppFixtures extends Fixture
         for ($i = 0; $i < 10; $i++) {
             $post = new Post();
             $post->setCategorie($this->faker->randomElement(['Allaitement','DMAE', 'Grossesse']))
-                ->setTitre($this->faker->word(1, 5))
+                ->setTitre($this->faker->word(mt_rand(1, 3)))
                 ->setArticle($this->faker->paragraphs(2, true))
-                ->setImage($this->faker->image(null, 360, 360))
                 ->setJourRedaction($this->faker->dateTimeBetween('-5 week', '+1 week'));
             $manager->persist($post);
         }
