@@ -41,18 +41,50 @@
       </div>
     </article>
 
-    <article class="bloc">
-      <div class="text-bloc">
+    <article class="homeblog">
+      <div class="bloc_homeblog">
+        <span class="titre_homeblog">Dernier article publié</span>
+        </div>
         {% for Post in Post %}
                 {#<img class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">#}
-                <div class="textehome">
+                <div class="texte_homeblog">
                     <h3 class=""> {{ Post.gettitre() }} </h3>
                     <p class=""> {{ Post.getarticle() }}</p>
                     <center><a class="btn btn-secondary" href="{{ path('app_post', {'id': Post.id}) }}" target="_blank">Lire l'article</a></center>
                 </div>
         {% endfor %}
+        <img class="image_presentation" src="{{ asset('/images/annexes/photo_presentation.png') }}" alt="">
     </div>
-      <img class="image_presentation" src="{{ asset('/images/annexes/photo_presentation.png') }}" alt="">
     </article>
+
+<style>
+@media screen and (min-width: 850px) {
+  .homeblog {
+    display : flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
+  .titre_homeblog {
+    margin: auto;
+    font-size: 25px;
+  }
+
+  .bloc_homeblog {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .texte_homeblog {
+    margin: 5% 
+  }
+
+}
+
+</style>
 
 {% endblock %}
