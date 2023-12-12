@@ -41,5 +41,18 @@
       </div>
     </article>
 
+    <article class="bloc">
+      <div class="text-bloc">
+        {% for Post in Post %}
+                {#<img class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">#}
+                <div class="textehome">
+                    <h3 class=""> {{ Post.gettitre() }} </h3>
+                    <p class=""> {{ Post.getarticle() }}</p>
+                    <center><a class="btn btn-secondary" href="{{ path('app_post', {'id': Post.id}) }}" target="_blank">Lire l'article</a></center>
+                </div>
+        {% endfor %}
+    </div>
+      <img class="image_presentation" src="{{ asset('/images/annexes/photo_presentation.png') }}" alt="">
+    </article>
 
 {% endblock %}
