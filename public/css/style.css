@@ -21,7 +21,9 @@ h2 {
 }
 
 .image_presentation {
-    width: auto;
+    width: 372px;
+    height: 383.08px;
+    margin: auto;
 }
 
 .bloc_actu {
@@ -35,7 +37,9 @@ h2 {
 }
 
 .image_actu {
-    width: auto;
+    width: 372px;
+    height: 383.08px;
+    margin: auto;
 }
 
 @media screen and (min-width: 850px) {
@@ -53,7 +57,9 @@ h2 {
     }
 
     .image_presentation {
-        width: 30%;
+        width: 372px;
+        height: 383.08px;
+        margin: auto;
     }
 
     .bloc_actu {
@@ -71,7 +77,9 @@ h2 {
     }
 
     .image_actu {
-        width: 30%;
+        width: 372px;
+        height: 383.08px;
+        margin: auto;
     }
 }
 
