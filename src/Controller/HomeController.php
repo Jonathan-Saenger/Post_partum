@@ -15,9 +15,8 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(ManagerRegistry $doctrine, PostRepository $PostRepository): Response
     {
-
         $PostRepository = $doctrine ->getRepository(Post::class);
-        $Post = $PostRepository ->findAll();
+        $Post = $PostRepository ->findBy([], ['jour_redaction' => 'DESC'], 1);
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',

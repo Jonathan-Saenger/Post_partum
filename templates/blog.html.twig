@@ -28,6 +28,7 @@
                 <div class="article_texte">
                     <h3 class=""> {{ Post.gettitre() }} </h3>
                     <p class=""> {{ Post.getarticle() }}</p>
+                    <p> {{ Post.getJourRedaction|format_date('long', locale='fr') }} </p>
                     <center><a class="btn btn-secondary" href="{{ path('app_post', {'id': Post.id}) }}" target="_blank">Lire l'article</a></center>
                 </div>
             </article>

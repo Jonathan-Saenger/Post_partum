@@ -52,8 +52,9 @@
                 <img class="image_presentation" src="{{ asset('/images/annexes/photo_allaitement.png') }}" alt="">
                 <div class="texte_homeblog">
                     <h3 class=""> {{ Post.gettitre() }} </h3>
-                    <p class=""> {{ Post.getarticle() }}</p>
-                    <p> Catégorie {{ Post.getcategorie( )}}</p>
+                    <p class=""> {{ Post.getarticle()|slice(0, 250) }}</p>
+                    <p> Catégorie {{ Post.getcategorie()}}</p>
+                    <p> {{ Post.getJourRedaction|format_date('long', locale='fr') }} </p>
                     <center><a class="btn btn-secondary" href="{{ path('app_post', {'id': Post.id}) }}" target="_blank">Lire l'article</a></center>
                 </div>
         {% endfor %}
