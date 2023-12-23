@@ -1,34 +1,22 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const categorieSelect = document.getElementById('categorie-select');
-    const searchButton = document.querySelector('.filtre button');
-    const postContainer = document.querySelector('.post');
+document.addEventListener('DOMContentLoaded', () => { 
+    // Je configure toutes les variables sur lesquelles je vais intéragir
+    const selectCategorie = document.getElementById('categorie-select');
+    const btnSubmit = document.getElementById('btnSubmit');
+    const articles = document.querySelectorAll('.article_post');
 
-    searchButton.addEventListener('click', function () {
-        const selectedCategory = categorieSelect.value;
-        const filteredPosts = filterPosts(selectedCategory);
-        displayPosts(filteredPosts);
+    btnSubmit.addEventListener('click', () => {
+        const selectedCategorie = selectCategorie.value; // je réassigne ma variable pour récupérer la catégorie précise 
+        articles.forEach(article => { //La méthode forEach() permet d'exécuter une fonction sur chaque article
+            const articleCategorie = article.querySelector('#categorie').innerText.trim(); //je récupère la catégorie de mes posts
+            if (selectedCategorie === '' || articleCategorie === selectedCategorie) { //création d'un booléen : soit il affiche tous les articles, soit uniquement la catégorie sélectionnée
+                article.style.display = 'block'; // affichage des articles si c'est vrai
+            } else {
+                article.style.display = 'none'; // on cache les articles si c'est faux
+            }
+        });
     });
-
-    function filterPosts(category) {
-        if (!category) {
-            return Array.from(postContainer.children);
-        }
-
-        const filteredPosts = Array.from(postContainer.children).filter(function (post) {
-            const postCategory = post.querySelector('.article_post h3').textContent.trim();
-            return postCategory === category;
-        });
-
-        return filteredPosts;
-    }
-
-    function displayPosts(posts) {
-        Array.from(postContainer.children).forEach(function (post) {
-            post.style.display = 'none';
-        });
-
-        posts.forEach(function (post) {
-            post.style.display = 'block';
-        });
-    }
 });
+
+/*L'évènement DOMContentLoaded est déclenché quand le document HTML initial est complètement 
+chargé et analysé, sans attendre la fin du chargement des feuilles de styles, images et 
+sous-document.*/
