@@ -14,6 +14,7 @@
             <option value="DMAE">DMAE</option>
         </select>
         <button 
+            id="btnSubmit"
             type="button" 
             class="btn btn-secondary"
             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
@@ -26,8 +27,9 @@
             <article class="article_post">
                 {#<img class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">#}
                 <div class="article_texte">
-                    <h3 class=""> {{ Post.gettitre() }} </h3>
-                    <p class=""> {{ Post.getarticle() }}</p>
+                    <h3 > {{ Post.gettitre() }} </h3>
+                    <p > {{ Post.getarticle()|slice(0,350) }}</p>
+                    <p id="categorie"> {{ Post.getCategorie() }} </p>
                     <p> {{ Post.getJourRedaction|format_date('long', locale='fr') }} </p>
                     <center><a class="btn btn-secondary" href="{{ path('app_post', {'id': Post.id}) }}" target="_blank">Lire l'article</a></center>
                 </div>
