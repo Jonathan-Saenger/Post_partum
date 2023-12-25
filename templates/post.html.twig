@@ -10,6 +10,7 @@
     <div class="article">
             <p> Article publié le {{ Post.getJourRedaction|format_date('long', locale='fr')}} </p>
             <h3> {{ Post.gettitre() }} </h3>
+            <img class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
             <p> {{ Post.getarticle( )}} </p>
             Catégorie : {{ Post.getcategorie}}
     </div>

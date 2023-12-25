@@ -206,9 +206,11 @@ class Post
         return $this->imageFile;
     }
 
-    public function setImageName(?string $imageName): void
+    public function setImageName(?string $imageName): static
     {
         $this->imageName = $imageName;
+
+        return $this;
     }
 
     public function getImageName(): ?string
@@ -216,13 +218,27 @@ class Post
         return $this->imageName;
     }
 
-    public function setImageSize(?int $imageSize): void
+    public function setImageSize(?int $imageSize): static
     {
         $this->imageSize = $imageSize;
+
+        return $this;
     }
 
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 }
