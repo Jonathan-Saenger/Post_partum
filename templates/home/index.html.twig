@@ -20,7 +20,7 @@
           consectetur adipiscing elit.<br><br>
           Je vous souhaite la bienvenue !</p>
       </div>
-      <img class="image_presentation" src="{{ asset('/images/annexes/photo_presentation.png') }}" alt="">
+      <img id="image_presentation" src="{{ asset('/images/annexes/photo_presentation.png') }}" alt="">
     </article>
 
     <article class="bloc_actu">
@@ -47,9 +47,7 @@
 
       <div class="article_homeblog">
         {% for Post in Post %}
-                {#<img class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">#}
-                <!-- applicquer le style css image-->
-                <img class="image_presentation" src="{{ asset('/images/annexes/photo_allaitement.png') }}" alt="">
+                <img id="image_presentation"  class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
                 <div class="texte_homeblog">
                     <h3 class=""> {{ Post.gettitre() }} </h3>
                     <p class=""> {{ Post.getarticle()|slice(0, 250) }}</p>

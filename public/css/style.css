@@ -20,7 +20,7 @@ h2 {
     margin: 5%;
 }
 
-.image_presentation {
+#image_presentation {
     width: 372px;
     height: 383.08px;
     margin: auto;
@@ -111,7 +111,7 @@ h2 {
         margin-right: 5%;
     }
 
-    .image_presentation {
+    #image_presentation {
         width: 372px;
         height: 383.08px;
         margin: auto;
