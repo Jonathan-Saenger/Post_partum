@@ -20,7 +20,7 @@
           consectetur adipiscing elit.<br><br>
           Je vous souhaite la bienvenue !</p>
       </div>
-      <img class="image_presentation" src="{{ asset('/images/annexes/photo_presentation.png') }}" alt="">
+      <img id="image_presentation" src="{{ asset('/images/annexes/photo_presentation.png') }}" alt="">
     </article>
 
     <article class="bloc_actu">
@@ -44,22 +44,18 @@
     <article class="homeblog">
       <div class="bloc_homeblog">
         <h2>Dernier article publié</h2>
-
-      <div class="article_homeblog">
-        {% for Post in Post %}
-                {#<img class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">#}
-                <!-- applicquer le style css image-->
-                <img class="image_presentation" src="{{ asset('/images/annexes/photo_allaitement.png') }}" alt="">
-                <div class="texte_homeblog">
-                    <h3 class=""> {{ Post.gettitre() }} </h3>
-                    <p class=""> {{ Post.getarticle()|slice(0, 250) }}</p>
-                    <p> Catégorie {{ Post.getcategorie()}}</p>
-                    <p> {{ Post.getJourRedaction|format_date('long', locale='fr') }} </p>
-                    <center><a class="btn btn-secondary" href="{{ path('app_post', {'id': Post.id}) }}" target="_blank">Lire l'article</a></center>
-                </div>
-        {% endfor %}
+        <div class="article_homeblog">
+          {% for Post in Post %}
+                  <img id="imageblog_presentation" class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
+                  <div class="texte_homeblog">
+                      <h3 class=""> {{ Post.gettitre() }} </h3>
+                      <p class=""> {{ Post.getarticle()|slice(0, 250) }}</p>
+                      <p> Catégorie {{ Post.getcategorie()}}</p>
+                      <p> {{ Post.getJourRedaction|format_date('long', locale='fr') }} </p>
+                      <center><a class="btn btn-secondary" href="{{ path('app_post', {'id': Post.id}) }}" target="_blank">Lire l'article</a></center>
+                  </div>
+          {% endfor %}
+        </div>
       </div>
-    </div>
     </article>
-
 {% endblock %}

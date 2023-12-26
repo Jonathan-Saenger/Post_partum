@@ -25,7 +25,7 @@
     <div class="post">
         {% for Post in Post %}
             <article class="article_post">
-                {#<img class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">#}
+                <img id="image_blog" class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
                 <div class="article_texte">
                     <h3 > {{ Post.gettitre() }} </h3>
                     <p > {{ Post.getarticle()|slice(0,350) }}</p>
@@ -34,7 +34,20 @@
                     <center><a class="btn btn-secondary" href="{{ path('app_post', {'id': Post.id}) }}" target="_blank">Lire l'article</a></center>
                 </div>
             </article>
+            
+<style>
+
+#image_blog {
+    width: 326px;
+    height: 214px;
+    margin: auto;
+    padding: 10px;
+}
+
+</style>
         {% endfor %}
     </div>
+
+
 
 {% endblock %}
