@@ -22,7 +22,7 @@ h2 {
 
 #image_presentation {
     width: 372px;
-    height: 383.08px;
+    height: 375px;
     margin: auto;
 }
 
@@ -64,8 +64,14 @@ h2 {
   
   .texte_homeblog {
     margin-top: 1%;
-    margin-bottom: ;
+    margin-bottom: 1%;
   }
+
+  #imageblog_presentation {
+    width: 400px;
+    height: 350px;
+    margin: auto;
+}
   
   @media screen and (min-width: 850px) {
     .homeblog {
@@ -80,8 +86,8 @@ h2 {
     .bloc_homeblog {
       display: flex;
       flex-direction: column;
-      margin-left: 5%;
-      margin-right: 5%;
+      margin-left: 2%;
+      margin-right: 2%;
     }
   
     .article_homeblog {
@@ -90,10 +96,10 @@ h2 {
     }
   
     .texte_homeblog {
-      margin-left: 10%;
-      margin-right: 10%;
-      margin-top: 5%;
-      margin-bottom: 5%;
+      margin-left: 7%;
+      margin-right: 7%;
+      margin-top: 2%;
+      margin-bottom: 3%;
     }
   }
 
@@ -113,7 +119,7 @@ h2 {
 
     #image_presentation {
         width: 372px;
-        height: 383.08px;
+        height: 375px;
         margin: auto;
     }
 
@@ -273,8 +279,8 @@ ul li a {
     }
 
     footer ul li {
-        padding-left: 150px;
-        padding-right: 150px;
+        padding-left: 100px;
+        padding-right: 100px;
         display: flex;
         align-items: center;
     }
