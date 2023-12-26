@@ -2,7 +2,6 @@
 
 {% block title %} Découvrez tous mes posts ! {% endblock %}
 
-
 {% block body %}
 
     <h2> Bonne lecture !  </h2>
@@ -10,10 +9,26 @@
     <div class="article">
             <p> Article publié le {{ Post.getJourRedaction|format_date('long', locale='fr')}} </p>
             <h3> {{ Post.gettitre() }} </h3>
-            <img class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
+            <img id="image_post"class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
             <p> {{ Post.getarticle( )}} </p>
             Catégorie : {{ Post.getcategorie}}
     </div>
+
+<style>
+
+#image_post {
+    width: 326px;
+    height: 214px;
+}
+
+@media screen and (min-width: 1250px) {
+    #image_post {
+        width: 519px;
+        height: 250px;
+    }
+ }
+
+</style>
 
 {% endblock %}
 
