@@ -3,18 +3,21 @@
 {% block title %}Hello EvenementController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {% for Evenement in Evenement %}
+        <div class="card text-center mx-5 my-3">
+            <div class="card-header">
+                <h5 class="card-title">{{ Evenement.gettitre() }} </h5>
+            </div>
+            <div class="card-body">
+                <img id="image_evenement" class="imageFile" src="{{ vich_uploader_asset(Evenement,'imageFile') }}" alt="Image blog">
+                <p class="card-text px-5 py-1">{{ Evenement.getdescription () }}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div class="card-footer text-body-secondary">
+                Publié le {{ Evenement.getDateCreation|format_date('long', locale='fr') }}
+            </div>
+        </div>
+    {% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Jonathan/OneDrive/Bureau/Application_Post_Partum/src/Controller/EvenementController.php'|file_link(0) }}">src/Controller/EvenementController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Jonathan/OneDrive/Bureau/Application_Post_Partum/templates/evenement/index.html.twig'|file_link(0) }}">templates/evenement/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}
