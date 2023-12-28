@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Evenement;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,9 +19,13 @@ class HomeController extends AbstractController
         $PostRepository = $doctrine ->getRepository(Post::class);
         $Post = $PostRepository ->findBy([], ['jour_redaction' => 'DESC'], 1);
 
+        $EvenementRepository = $doctrine->getRepository(Evenement::class);
+        $Evenement = $EvenementRepository->findBy([], ['date_creation' => 'DESC'], 1);
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'Post'=> $Post,
+            'Evenement' => $Evenement, 
         ]);
     }
 }

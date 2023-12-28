@@ -4,9 +4,10 @@ namespace App\Controller\Admin;
 
 use App\Entity\Evenement;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 
 class EvenementCrudController extends AbstractCrudController
 {
@@ -15,14 +16,12 @@ class EvenementCrudController extends AbstractCrudController
         return Evenement::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+        yield TextField::new('titre');
+        yield TextareaField::new('description');
+        yield TextareaField::new('imageFile')->setFormType(VichImageType::class);
+        yield DateField::new('date_creation');
+
     }
-    */
 }

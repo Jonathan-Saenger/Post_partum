@@ -144,6 +144,30 @@ h2 {
     }
 }
 
+/* Images blog */ 
+
+#image_blog {
+    width: 326px;
+    height: 214px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* Images Post */
+#image_post {
+    width: 100%;
+}
+
+/* Images Evènement */
+#image_evenement {
+    width: 50%;
+}
+
+/* Image Evènement sur la page Index*/
+#image_evenementindex {
+    width: 373px;
+    margin: auto;
+}
 
 footer {
     display: flex;
