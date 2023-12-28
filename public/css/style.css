@@ -163,6 +163,12 @@ h2 {
     width: 50%;
 }
 
+/* Image Evènement sur la page Index*/
+#image_evenementindex {
+    width: 373px;
+    margin: auto;
+}
+
 footer {
     display: flex;
     flex-direction: column;

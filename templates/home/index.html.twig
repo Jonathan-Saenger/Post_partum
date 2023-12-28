@@ -24,21 +24,22 @@
     </article>
 
     <article class="bloc_actu">
-      <img class="image_actu" src="{{ asset('/images/annexes/photo_actualite.png') }}" alt="">
-      <div class="text-blocactu">
+      {% for Evenement in Evenement %}
+        <img id="image_evenementindex" class="imageFile" src="{{ vich_uploader_asset(Evenement,'imageFile') }}" alt="Image Evènement">
+        <div class="text-blocactu"> 
           <h2> Dernière actualité </h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet tristique sapien. 
-          Integer ultrices vulputate magna, vulputate mattis sem dapibus ut. Praesent luctus purus nec 
-          scelerisque congue. Curabitur urna purus, hendrerit a dictum rutrum, vestibulum eu nisi. 
-          Vivamus in rutrum odio. Integer interdum tempor sem, ac suscipit ex vestibulum at. Mauris vel
-          scelerisque purus. Vestibulum lobortis nibh et risus maximus, vitae volutpat mi aliquam.
-          Proin congue at lectus eget elementum. Proin ac aliquam ex. Maecenas hendrerit erat id enim
-          molestie egestas. <br> Donec faucibus gravida velit eu posuere. Praesent volutpat, ex sed efficitur 
-          varius, justo nibh mattis ante, id posuere ligula purus ullamcorper ante. Orci varius natoque
-          penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, 
-          consectetur adipiscing elit.<br><br>
-          Je vous souhaite la bienvenue !</p>
-      </div>
+          <h3> {{ Evenement.gettitre() }} </h3>
+          <p> {{ Evenement.getdescription()|slice(0, 300) }} ...
+            <a 
+              class="btn btn-light btn-sm" 
+              href="{{ path('app_evenement', {'id': Evenement.id}) }}" 
+              target="_blank">lire la suite
+            </a>
+          </p>
+          <p> Publié le {{ Evenement.getDateCreation|format_date('long', locale='fr') }} </p>
+        </div>
+      {% endfor %}
+
     </article>
 
     <article class="homeblog">
