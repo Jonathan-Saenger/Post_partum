@@ -47,7 +47,7 @@
         <h2>Dernier article publié</h2>
         <div class="article_homeblog">
           {% for Post in Post %}
-                  <img id="imageblog_presentation" class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
+                  <img id="image_evenementindex" class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
                   <div class="texte_homeblog">
                       <h3 class=""> {{ Post.gettitre() }} </h3>
                       <p class=""> {{ Post.getarticle()|slice(0, 250) }}</p>

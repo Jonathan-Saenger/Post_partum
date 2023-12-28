@@ -10,9 +10,9 @@
                 <h5 class="card-title">{{ Evenement.gettitre() }} </h5>
             </div>
             <div class="card-body">
-                <img id="image_evenement" class="imageFile" src="{{ vich_uploader_asset(Evenement,'imageFile') }}" alt="Image blog">
+                <img id="image_evenement" class="imageFile" src="{{ vich_uploader_asset(Evenement,'imageFile') }}" alt="Image Evènement">
                 <p class="card-text px-5 py-1">{{ Evenement.getdescription () }}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="#" class="btn btn-primary">Contact</a>
             </div>
             <div class="card-footer text-body-secondary">
                 Publié le {{ Evenement.getDateCreation|format_date('long', locale='fr') }}
