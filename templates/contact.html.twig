@@ -1,20 +1,60 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}Formulaire de contact{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<h2> N'hésitez pas à m'écrire </h2>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/saeng/Documents/Post_partum/src/Controller/ContactController.php'|file_link(0) }}">src/Controller/ContactController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/saeng/Documents/Post_partum/templates/contact/index.html.twig'|file_link(0) }}">templates/contact/index.html.twig</a></code></li>
-    </ul>
+<div class="cadreform needs-validation" novalidate>
+    {{ form_start(form)}}
+        {{form_errors(form)}}
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.nom) }}
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.prenom) }}
+            {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.telephone) }}
+            {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.message) }}
+            {{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.acceptTermes) }}
+            {{ form_widget(form.acceptTermes, {'attr': {'class': 'checkbox'}}) }}
+        </div>
+
+        <button type="submit" class="mb-3 ms-5 btn btn-primary">Envoyer</button>
+    {{ form_end(form)}}
 </div>
+
+<style>
+    .cadreform {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+  @media screen and (min-width: 850px) {
+    .cadreform {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
+</style>
 {% endblock %}
