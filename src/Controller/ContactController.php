@@ -18,13 +18,18 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // configurer Mailer
-            
-            return $this->redirectToRoute('app_submit'); //route à créer
+            return $this->redirectToRoute('/submit');
         }
 
         return $this->render('contact.html.twig', [
             'controller_name' => 'ContactController',
             'form' => $form->createView(),
         ]);
+    }
+
+    #[Route('/submit', name: 'app_submit')]
+    public function submit() : Response
+    {
+        return $this->render('submit.html.twig');
     }
 }
