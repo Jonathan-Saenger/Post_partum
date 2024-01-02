@@ -21,12 +21,19 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
 
+            $nom = $data['nom'];
+            $prenom = $data['prenom'];
+            $email = $data['email'];
+            $telephone = $data['telephone'];
+            $message = $data['message'];
+
             $email = (new Email())
-                ->from($data['email'])
-                ->to('jonathan.saenger.pro@gmail.com')
+                ->from($email)
+                ->to('contact@example.com')
                 ->subject('Formulaire de contact')
-                ->html("<p>Bonjour Léa ! Tu as reçu une demande de contact de {$data['prenom']} {$data['nom']} ! Son numéro de téléphone est 
-                le {$data['telephone']}. Voici son message : {$data['message']}</p>");
+                ->text($message)
+                ->html("<p>Bonjour Léa ! Tu as reçu une demande de contact de " . $prenom . "  " . $nom . " ! Son numéro de téléphone est 
+                le " . $telephone . " . Voici son message : " . $message . " </p>");
                 
             $mailer->send($email);
 
