@@ -2,22 +2,20 @@
 
 namespace App\Form;
 
+use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
 
-
-class ContactType extends AbstractType
+class FormulaireContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -26,13 +24,13 @@ class ContactType extends AbstractType
                 'constraints' => [
                     new Length([
                         'min' => 2,
-                        'minMessage' => 'Veuillez saisir un minimum de {{ limite }} caractères',
+                        'minMessage' => 'Veuillez saisir un minimum de {{ limit }} caractères',
                         'max' => 15,
                         'maxMessage' => 'Vous avez dépassé le nombre de caractères limités',
                     ]),
                     new Regex([
-                        'pattern' => '/\d/',
-                        'match' => false,
+                        'pattern' => '/^[a-zA-Z-]+$/',
+                        'match' => true,
                         'message' => 'Vous avez employé un caractère non autorisé, merci de le supprimer'
                     ]),
                 ]
@@ -46,29 +44,24 @@ class ContactType extends AbstractType
                         'maxMessage' => 'Vous avez dépasser le nombre de caractères limités',
                     ]),
                     new Regex([
-                        'pattern' => '/^[^\-\\\/\*]*$/',
-                        'match' => false,
+                        'pattern' => '/^[a-zA-Z-]+$/',
+                        'match' => true,
                         'message' => 'Vous avez employé un caractère non autorisé, merci de le supprimer'
                     ])
                 ]
             ])
-            ->add('telephone', IntegerType::class, [
-                'constraints' => [
-                    new NotBlank(['message' => 'Merci de saisir un numéro de téléphone']),
-                ],
-                'invalid_message' => 'Veuillez entrer un numéro de téléphone valide.'
-            ])
-            -> add('email', EmailType::class, [
-                'constraints' => [
-                    new NotBlank(['message' => 'Veuillez saisir votre Email']),
-                    new Email (['message' => 'Veuillez entrer une adresse e-mail valide.'])
-                ]
-            ])
+            ->add('email')
+            ->add('telephone', IntegerType::class)
             ->add('message', TextareaType::class, [
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir votre message'])
-                ]
+                    new NotBlank(['message' => 'Veuillez saisir votre message.']),
+                    new Length([
+                        'min' => 10,
+                        'minMessage' => 'Votre message ne peut pas comporter moins de {{ limit }} caractères.',
+                        'max' => 1500,
+                        'maxMessage' => 'Votre message ne peut pas comporter plus de {{ limit }} caractères.',
+                    ]),
+                ],
             ])
             ->add('acceptTermes', CheckboxType::class, [
                 'mapped' => false,
@@ -83,8 +76,8 @@ class ContactType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
+            'data_class' => Contact::class,
             'csrf_protection' => true,
-            'action' => '/submit',
         ]);
     }
 }

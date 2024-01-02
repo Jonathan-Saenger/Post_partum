@@ -15,6 +15,7 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 20)]
+
     private ?string $nom = null;
 
     #[ORM\Column(length: 20)]
