@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
-use App\Form\ContactType;
 use App\Form\FormulaireContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,7 +31,7 @@ class ContactController extends AbstractController
 
             $email = (new Email())
                 ->from($email)
-                ->to('contact@example.com')
+                ->to('to@example.com')
                 ->subject('Formulaire de contact')
                 ->text($message)
                 ->html("<p>Bonjour Léa ! Tu as reçu une demande de contact de " . $prenom . "  " . $nom . " ! Son numéro de téléphone est 
@@ -40,7 +39,7 @@ class ContactController extends AbstractController
                 
             $mailer->send($email);
 
-            return $this->redirectToRoute('app_submit');
+            //return $this->redirectToRoute('app_submit');
         }
 
         return $this->render('contact.html.twig', [
