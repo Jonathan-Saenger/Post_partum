@@ -10,6 +10,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mime\Email;
+use Symfony\Component\Intl\Languages;
+
+\Locale::setDefault('en');
+$language = Languages::getName('fr');
+$language = Languages::getAlpha3Name('fra');
 
 class ContactController extends AbstractController
 {
@@ -35,11 +40,11 @@ class ContactController extends AbstractController
                 ->subject('Formulaire de contact')
                 ->text($message)
                 ->html("<p>Bonjour Léa ! Tu as reçu une demande de contact de " . $prenom . "  " . $nom . " ! Son numéro de téléphone est 
-                le " . $telephone . " . Voici son message : " . $message . " </p>");
+                le 0" . $telephone . " . Voici son message : " . $message . " </p>");
                 
             $mailer->send($email);
 
-            //return $this->redirectToRoute('app_submit');
+            return $this->redirectToRoute('app_submit');
         }
 
         return $this->render('contact.html.twig', [
