@@ -9,6 +9,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Symfony\Component\Intl\Languages;
+
+\Locale::setDefault('en');
+$language = Languages::getName('fr');
+$language = Languages::getAlpha3Name('fra');
 
 class PostCrudController extends AbstractCrudController
 {

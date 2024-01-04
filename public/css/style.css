@@ -72,6 +72,22 @@ h2 {
     height: 350px;
     margin: auto;
 }
+
+/* PAGE SUBMIT */ 
+.image_submit {
+    width: 40% ;
+    height: auto;
+    margin-bottom: 1%;
+}
+.reponse {
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+    align-items: center;
+}
+.boutton_accueil {
+    margin-top: 1%;
+}
   
   @media screen and (min-width: 850px) {
     .homeblog {
@@ -322,3 +338,4 @@ ul li a {
         margin-right: 10%;
     }
 }
+

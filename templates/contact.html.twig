@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire de contact{% endblock %}
+
+{% block body %}
+
+<h2> N'hésitez pas à m'écrire </h2>
+
+<div class="cadreform needs-validation" novalidate>
+    {{ form_start(form)}}
+        {{form_errors(form)}}
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.nom) }}
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.nom) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.prenom) }}
+            {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.prenom) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.email) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.telephone) }}
+            {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.telephone) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.message) }}
+            {{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.message) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(form.acceptTermes) }}
+            {{ form_widget(form.acceptTermes, {'attr': {'class': 'checkbox'}}) }}
+            {{ form_errors(form.acceptTermes) }}
+        </div>
+
+        <button type="submit" class="mb-3 ms-5 btn btn-primary">Envoyer</button>
+    {{ form_end(form)}}
+</div>
+
+<style>
+    .cadreform {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+  @media screen and (min-width: 850px) {
+    .cadreform {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
+</style>
+{% endblock %}
