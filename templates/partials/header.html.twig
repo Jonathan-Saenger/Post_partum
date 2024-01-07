@@ -34,7 +34,7 @@
                 {% if is_granted('ROLE_ADMIN') %}
                     <p><a class="connecter" href="{{path ('admin')}}">Panneau d'administration</a></p>
                 {% else %}
-                    <button type="button" class="btn">S'inscrire</button>
+                    <a href="{{ path('app_register') }}"><button type="button" class="btn">S'inscrire</button></a>
                     <a href="{{ path('app_login') }}"><button type="button" class="btn btn-outline-secondary">Se connecter</button></a>
                 {% endif %}
 
