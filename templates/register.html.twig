@@ -36,6 +36,12 @@
             {{ form_errors(registrationForm.Password) }}
         </div>
 
+        <div class="mb-3 mx-5">
+            {{ form_widget(registrationForm.acceptTermes, {'attr': {'class': 'checkbox'}}) }}
+            {{ form_label(registrationForm.acceptTermes) }}
+            {{ form_errors(registrationForm.acceptTermes) }}
+        </div>
+
         <button type="submit" class="mb-3 ms-5 btn btn-primary"> S'inscrire </button>
 
     {{ form_end(registrationForm) }}

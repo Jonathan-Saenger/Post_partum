@@ -8,6 +8,8 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
@@ -62,6 +64,13 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Votre Password doit contenir au moins une lettre majuscule, un chiffre, un caractère spécial et 8 caractères.',
                     ]),
                 ],
+            ])
+            ->add('acceptTermes', CheckboxType::class, [
+                'mapped' => false,
+                'label' => 'En soumettant ce formulaire, j’accepte que mes informations soient utilisées exclusivement dans le cadre de ma demande de contact.',
+                'constraints' => [
+                    new IsTrue(['message' => 'Vous devez accepter les conditions d\'utilisation pour continuer']),
+                ]
             ])
         ;
     }
