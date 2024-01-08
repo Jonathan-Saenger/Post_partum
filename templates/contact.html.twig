@@ -41,13 +41,15 @@
         </div>
 
         <div class="mb-3 mx-5">
-            {{ form_label(form.acceptTermes) }}
             {{ form_widget(form.acceptTermes, {'attr': {'class': 'checkbox'}}) }}
+            {{ form_label(form.acceptTermes) }}
             {{ form_errors(form.acceptTermes) }}
         </div>
 
         <button type="submit" class="mb-3 ms-5 btn btn-primary">Envoyer</button>
+
     {{ form_end(form)}}
+    
 </div>
 
 <style>

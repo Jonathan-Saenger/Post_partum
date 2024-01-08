@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<div class="login">
+    <h2> Page d'inscription </h2>
+
+    <p> Merci de renseigner tous les champs pour vous inscrire. </p>
+
+    {{ form_start(registrationForm) }}
+        {{ form_errors(registrationForm) }}
+
+        <div class="mb-3 mx-5">
+            {{ form_label(registrationForm.nom) }}
+            {{ form_widget(registrationForm.nom, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.nom) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(registrationForm.prenom) }}
+            {{ form_widget(registrationForm.prenom, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.prenom) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(registrationForm.email) }}
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.email) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_label(registrationForm.Password) }}
+            {{ form_widget(registrationForm.Password, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registrationForm.Password) }}
+        </div>
+
+        <div class="mb-3 mx-5">
+            {{ form_widget(registrationForm.acceptTermes, {'attr': {'class': 'checkbox'}}) }}
+            {{ form_label(registrationForm.acceptTermes) }}
+            {{ form_errors(registrationForm.acceptTermes) }}
+        </div>
+
+        <button type="submit" class="mb-3 ms-5 btn btn-primary"> S'inscrire </button>
+
+    {{ form_end(registrationForm) }}
+
+    <a href="{{ path('app_login') }}" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"> Vous avez déjà un compte ? Connectez-vous. </a> <br>
+    <a href="{{ path('app_contact') }}" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"> En cas d'oublie de Password, veuillez contacter l'administrateur du site. </a>
+</div>
+
+{% endblock %}

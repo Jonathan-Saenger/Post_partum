@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Inscription réussie ! {% endblock %}
+
+{% block body %}
+
+    <div class="reponse">
+        <img class="image_submit" src="{{ asset('/images/annexes/photo_inscription.png') }}" alt="Bienvenue sur le site Post-Partum">
+        <h2> Merci pour votre inscription ! </h2>
+        <h3> N'hésitez pas à me contacter pour un témoignage ou partager vos avis en commentaire dans le blog ! </h3>
+        <div class="boutton_accueil">
+            <a href="{{ path('app_home') }}"><button type="button" class="btn btn-primary btn-lg">Revenir à l'accueil</button></a>
+        </div>
+    </div>
+
+{% endblock %}
