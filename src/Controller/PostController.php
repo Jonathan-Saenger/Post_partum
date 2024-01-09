@@ -22,9 +22,13 @@ class PostController extends AbstractController
             $PostRepository = $doctrine ->getRepository(Post::class);
             $Post = $PostRepository ->find($id);
 
+            $comment = new Commentaire();
+            $form = $this->createForm(CommentType::class, $comment);
+
         return $this->render('post.html.twig', [
             'controller_name' => 'BlogController',
             'Post' => $Post,
+            'form' => $form->createView(),
         ]);
     }
 

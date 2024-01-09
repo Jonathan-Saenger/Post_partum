@@ -13,6 +13,35 @@
             <p> {{ Post.getarticle( )}} </p>
             Catégorie : {{ Post.getcategorie}}
     </div>
+       <!-- Affichage des commentaires existants -->
+   {% for commentaire in Post.commentaire %}
+       <div class="commentaire">
+           <h4>{{ commentaire.nom }}</h4>
+           <p>{{ commentaire.reponse }}</p>
+           <p><small>Publié le {{ commentaire.jour_publication|date('d/m/Y H:i') }}</small></p>
+       </div>
+   {% endfor %}
+
+   <h3> Commentaires </h3>
+
+  {% if is_granted('ROLE_USER') %}
+
+    {{ form_start(form) }}
+
+        {{ form_label(form.user) }}
+        {{ form_widget(form.user) }}
+        {{ form_errors(form.user)}} <br>
+
+        {{ form_label(form.reponse) }}
+        {{ form_widget(form.reponse) }}
+        {{ form_errors(form.reponse)}} <br>
+
+        <button type="submit" class="mb-3 ms-5 btn btn-primary">Envoyer</button>
+
+      {{ form_end(form) }}
+
+  {% endif %}
+
 
 {% endblock %}
 
