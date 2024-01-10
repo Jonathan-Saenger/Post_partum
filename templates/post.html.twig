@@ -13,35 +13,52 @@
             <p> {{ Post.getarticle( )}} </p>
             Catégorie : {{ Post.getcategorie}}
     </div>
+
+    <h3 class="ms-5"> Commentaires </h3>    
        <!-- Affichage des commentaires existants -->
    {% for commentaire in Post.commentaire %}
        <div class="commentaire">
-           <h4>{{ commentaire.nom }}</h4>
+           <h4>{{ commentaire.user.nom }}</h4>
            <p>{{ commentaire.reponse }}</p>
            <p><small>Publié le {{ commentaire.jour_publication|date('d/m/Y H:i') }}</small></p>
        </div>
    {% endfor %}
 
-   <h3> Commentaires </h3>
+    <div class="comment">
+        {% if is_granted('ROLE_USER') %}
 
-  {% if is_granted('ROLE_USER') %}
+        {{ form_start(form) }}
+            <div class="mb-3 mx-3">
+                {{ form_label(form.user) }}
+                {{ form_widget(form.user, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.user)}}
+            </div>
+            <div class="mb-3 mx-3">
+                {{ form_label(form.reponse) }}
+                {{ form_widget(form.reponse, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.reponse)}}
+            </div>
 
-    {{ form_start(form) }}
+            <button type="submit" class="mb-3 ms-3 btn btn-primary">Envoyer</button>
 
-        {{ form_label(form.user) }}
-        {{ form_widget(form.user) }}
-        {{ form_errors(form.user)}} <br>
+        {{ form_end(form) }}
 
-        {{ form_label(form.reponse) }}
-        {{ form_widget(form.reponse) }}
-        {{ form_errors(form.reponse)}} <br>
+        {% endif %}
+    </div>
 
-        <button type="submit" class="mb-3 ms-5 btn btn-primary">Envoyer</button>
+<style>
+.comment {
+    margin-left: 10%;
+    margin-right: 10%;
+}
 
-      {{ form_end(form) }}
+@media screen and (min-width: 850px) {
+    .comment {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
 
-  {% endif %}
-
-
+</style>
 {% endblock %}
 

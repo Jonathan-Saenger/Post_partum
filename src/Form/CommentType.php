@@ -21,10 +21,10 @@ class CommentType extends AbstractType
                 'choice_label' => 'nom',
                 'label' => 'Nom'
             ])
-            /*->add('post', EntityType::class, [
+            ->add('post', EntityType::class, [
                 'class' => Post::class,
                 'choice_label' => 'id',
-            ])*/
+            ])
         ;
     }
 

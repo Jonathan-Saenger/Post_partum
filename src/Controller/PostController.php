@@ -6,6 +6,7 @@ use App\Entity\Commentaire;
 use App\Entity\Post;
 use App\Form\CommentType;
 use App\Repository\PostRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,21 +34,21 @@ class PostController extends AbstractController
     }
 
     #[Route("/comment/{id}", name: "comment")]
-    public function comment(Request $request, Post $post, EntityManagerInterface $em): Response
+    public function comment(Request $request, Post $post, EntityManager $entityManager): Response
     {
-        $comment = new Commentaire();
-        $form = $this->createForm(CommentType::class, $comment);
+        $commentaire = new Commentaire();
+        $form = $this->createForm(CommentType::class, $commentaire);
         $form->handleRequest($request);
  
         if ($form->isSubmitted() && $form->isValid()) {
-            // Set the user and the post for the comment
-            $comment->setUser($this->getUser());
-            $comment->setPost($post);
- 
-            // Save the comment in the database
-            $em->persist($comment);
-            $em->flush();
- 
+           
+            // Associer le commentaire à l'utilisateur et au post
+            $commentaire->setUser($this->getUser());
+            $commentaire->setPost($post);
+
+            $entityManager->persist($commentaire);
+            $entityManager->flush();
+
             return $this->redirectToRoute('app_post', ['id' => $post->getId()]);
         }
  
