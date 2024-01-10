@@ -18,9 +18,9 @@
        <!-- Affichage des commentaires existants -->
    {% for commentaire in Post.commentaire %}
        <div class="commentaire">
-           <h4>{{ commentaire.user.nom }}</h4>
-           <p>{{ commentaire.reponse }}</p>
-           <p><small>Publié le {{ commentaire.jour_publication|date('d/m/Y H:i') }}</small></p>
+           <h4>{{ commentaire.getUser().getNom() }}</h4>
+           <p>{{ commentaire.getReponse() }}</p>
+           <p><small>Publié le {{ commentaire.getJour_publication|date('d/m/Y H:i') }}</small></p>
        </div>
    {% endfor %}
 
