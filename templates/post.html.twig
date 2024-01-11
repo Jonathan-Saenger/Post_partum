@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <h2> Bonne lecture !  </h2>
+    <h2> Bonne lecture ! </h2>
 
     <div class="article">
             <p> Article publié le {{ Post.getJourRedaction|format_date('long', locale='fr')}} </p>
@@ -14,35 +14,46 @@
             Catégorie : {{ Post.getcategorie}}
     </div>
 
-    <h3 class="ms-5"> Commentaires </h3>    
-       <!-- Affichage des commentaires existants -->
-   {% for commentaire in Post.commentaire %}
-       <div class="commentaire">
-           <h4>{{ commentaire.getUser().getNom() }}</h4>
-           <p>{{ commentaire.getReponse() }}</p>
-           <p><small>Publié le {{ commentaire.getJour_publication|date('d/m/Y H:i') }}</small></p>
-       </div>
-   {% endfor %}
+       <!-- Affichage des commentaires existants -->  
+        <div class="contenu_commentaires">
+            <h3 class="text-center"> Rubrique commentaires </h3> 
+            <div class="commentaires">
+                {% for commentaire in Post.commentaire %}
+                    <div class="commentaire">
+                        <h4>{{ commentaire.getNom() }}</h4>
+                        <span>{{ commentaire.getReponse() }}</span>
+                        <p class="text-sm-end"><small>écrit le {{ commentaire.getJourPublication|date('d/m/Y H:i') }}</small></p>
+                        <center> ----- </center>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
 
     <div class="comment">
         {% if is_granted('ROLE_USER') %}
+            <h3 class="text-center"> Votre commentaire </h3>  
+            {{ form_start(form) }}
+                <div class="mb-3 mx-3" id="user_ban">
+                    {{ form_label(form.user) }}
+                    {{ form_widget(form.user, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.user)}}
+                </div>
+                <div class="mb-3 mx-3">
+                    {{ form_label(form.nom) }}
+                    {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.nom)}}
+                </div>
+                <div class="mb-3 mx-3">
+                    {{ form_label(form.reponse) }}
+                    {{ form_widget(form.reponse, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.reponse)}}
+                </div>
 
-        {{ form_start(form) }}
-            <div class="mb-3 mx-3">
-                {{ form_label(form.user) }}
-                {{ form_widget(form.user, {'attr': {'class': 'form-control'}}) }}
-                {{ form_errors(form.user)}}
-            </div>
-            <div class="mb-3 mx-3">
-                {{ form_label(form.reponse) }}
-                {{ form_widget(form.reponse, {'attr': {'class': 'form-control'}}) }}
-                {{ form_errors(form.reponse)}}
-            </div>
+                <button type="submit" class="mb-3 ms-3 btn btn-primary">Envoyer</button>
 
-            <button type="submit" class="mb-3 ms-3 btn btn-primary">Envoyer</button>
-
-        {{ form_end(form) }}
-
+            {{ form_end(form) }}
+        {% else %}
+            <div class="image_signup"><img class="img-fluid" src="{{ asset('/images/annexes/photo_signup.png') }}" alt="Bienvenue sur le site Post-Partum"></div>
         {% endif %}
     </div>
 
@@ -52,13 +63,54 @@
     margin-right: 10%;
 }
 
+#user_ban {
+    display: none;
+}
+
+.commentaires {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+.commentaire {
+
+}
+.contenu_commentaires {
+    border: solid 1px;
+    background-color: #DCE7EA;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.image_signup {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 10px;
+}
+
 @media screen and (min-width: 850px) {
     .comment {
         margin-left: 20%;
         margin-right: 20%;
     }
-}
+    .commentaires {
+        margin-top: 10px;
+        margin-bottom: 10px
+    }
+    .commentaire {
 
+    }
+    .contenu_commentaires {
+        border: solid 1px;
+        background-color: #DCE7EA;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    .image_signup {
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-bottom: 10px;
+    }
+}
 </style>
+
 {% endblock %}
 
