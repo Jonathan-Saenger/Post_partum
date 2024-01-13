@@ -67,7 +67,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('acceptTermes', CheckboxType::class, [
                 'mapped' => false,
-                'label' => 'En soumettant ce formulaire, j’accepte que mes informations soient utilisées exclusivement dans le cadre de ma demande de contact.',
+                'label' => 'En soumettant ce formulaire, j’accepte que mes informations soient utilisées dans le cadre de mon inscription.',
                 'constraints' => [
                     new IsTrue(['message' => 'Vous devez accepter les conditions d\'utilisation pour continuer']),
                 ]

@@ -32,9 +32,12 @@ class PostController extends AbstractController
             // Associer le commentaire à l'utilisateur et au post
             $commentaire->setUser($this->getUser());
             $commentaire->setPost($Post);
+            $commentaire->setJourPublication(new \DateTime());
 
             $entityManager->persist($commentaire);
             $entityManager->flush();
+
+            return $this->redirect($request->getUri());
         }
 
         //Récupération des commentaires 
