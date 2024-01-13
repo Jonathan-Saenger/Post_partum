@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Commentaire;
-use App\Entity\Post;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -14,6 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
+
 
 class CommentType extends AbstractType
 {
@@ -51,10 +51,7 @@ class CommentType extends AbstractType
                 'choice_label' => 'nom',
                 'label' => 'Nom'
             ])
-            /*->add('post', EntityType::class, [
-                'class' => Post::class,
-                'choice_label' => 'id',
-            ])*/
+            ->add('jour_publication')
         ;
     }
 

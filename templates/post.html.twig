@@ -46,6 +46,12 @@
                     {{ form_widget(form.reponse, {'attr': {'class': 'form-control'}}) }}
                     {{ form_errors(form.reponse)}}
                 </div>
+                <div class="mb-3 mx-3" id="user_ban">
+                    {{ form_label(form.jour_publication) }}
+                    {{ form_widget(form.jour_publication, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.jour_publication)}}
+                </div>
+
                 <button type="submit" class="mb-3 ms-3 btn btn-primary">Envoyer</button>
             {{ form_end(form) }}
         {% else %}
