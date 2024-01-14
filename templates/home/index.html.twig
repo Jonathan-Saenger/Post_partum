@@ -23,20 +23,22 @@
       <img id="image_presentation" src="{{ asset('/images/annexes/photo_presentationnew.png') }}" alt="">
     </article>
 
+    <h2 class="class_titre"> Dernière actualité </h2>
     <article class="bloc_actu">
       {% for Evenement in Evenement %}
-        <img id="image_evenementindex" class="imageFile" src="{{ vich_uploader_asset(Evenement,'imageFile') }}" alt="Image Evènement">
         <div class="text-blocactu"> 
-          <h2> Dernière actualité </h2>
-          <h3> {{ Evenement.gettitre() }} </h3>
-          <p> {{ Evenement.getdescription()|slice(0, 300) }} ...
-            <a 
-              class="btn btn-light btn-sm" 
-              href="{{ path('app_evenement', {'id': Evenement.id}) }}" 
-              target="_blank">lire la suite
-            </a>
-          </p>
-          <p> Publié le {{ Evenement.getDateCreation|format_date('long', locale='fr') }} </p>
+          <img id="image_evenementindex" class="imageFile" src="{{ vich_uploader_asset(Evenement,'imageFile') }}" alt="Image Evènement">
+            <div class="nouveau_bloc">  
+              <h3> {{ Evenement.gettitre() }} </h3>
+              <p> {{ Evenement.getdescription()|slice(0, 300) }} ...
+                <a 
+                  class="btn btn-light btn-sm" 
+                  href="{{ path('app_evenement', {'id': Evenement.id}) }}" 
+                  target="_blank">lire la suite
+                </a>
+              </p>
+              <p> Publié le {{ Evenement.getDateCreation|format_date('long', locale='fr') }} </p>
+            </div>
         </div>
       {% endfor %}
 

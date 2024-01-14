@@ -17,7 +17,10 @@ h2 {
 }
 
 .text-bloc {
-    margin: 5%;
+    margin-top: 3%;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 #image_presentation {
@@ -33,13 +36,24 @@ h2 {
 }
 
 .text-blocactu {
-    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    margin-right: 2%;
+    align-items: center;
 }
 
 .image_actu {
     width: 372px;
     height: 383.08px;
     margin: auto;
+}
+
+.nouveau_bloc {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
 .homeblog {
@@ -71,6 +85,12 @@ h2 {
     width: 400px;
     height: 350px;
     margin: auto;
+}
+
+.class_titre {
+    background-color: #DDDDDD;
+    margin-bottom: 0;
+    margin-top: 1%;
 }
 
 /* PAGE SUBMIT */ 
@@ -141,22 +161,34 @@ h2 {
 
     .bloc_actu {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         margin-left: 5%;
         margin-right: 5%;
-        margin-top: 1%;
         margin-bottom: 1%;
     }
 
     .text-blocactu {
-        margin-top: 1%;
-        margin-right: 5%;
+        display: flex;
+        flex-direction: row;
     }
 
     .image_actu {
         width: 372px;
         height: 383.08px;
         margin: auto;
+    }
+
+    .nouveau_bloc {
+        display: flex;
+        flex-direction: column;
+        margin-right: 5px;
+    }
+
+    .class_titre {
+        background-color: #DDDDDD;
+        margin-top: 1%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 }
 
@@ -181,8 +213,8 @@ h2 {
 
 /* Image Evènement sur la page Index*/
 #image_evenementindex {
-    width: 373px;
-    margin: auto;
+    width: 370px;
+    margin-top: 1%;
 }
 
 footer {
@@ -292,6 +324,14 @@ ul li a {
         margin-left: 10%;
         margin-top: 3%;
         margin-bottom: 1%;
+    }
+
+    #image_evenementindex {
+        width: 400px;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        margin-right: 2%;
+       
     }
 
 }
