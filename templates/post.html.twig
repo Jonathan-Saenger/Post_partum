@@ -4,15 +4,118 @@
 
 {% block body %}
 
-    <h2> Bonne lecture !  </h2>
+    <h2> {{ Post.gettitre() }} </h2>
 
-    <div class="article">
-            <p> Article publié le {{ Post.getJourRedaction|format_date('long', locale='fr')}} </p>
-            <h3> {{ Post.gettitre() }} </h3>
-            <img id="image_post" class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
-            <p> {{ Post.getarticle( )}} </p>
-            Catégorie : {{ Post.getcategorie}}
-    </div>
+    <article class="article">
+        <p> Article publié le {{ Post.getJourRedaction|format_date('long', locale='fr')}} </p>
+        <img id="image_post" class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
+        <p> {{ Post.getarticle( )}} </p>
+        <small>Catégorie : {{ Post.getcategorie}}</small>
+    </article>
+
+       <!-- Affichage des commentaires existants -->  
+    <section class="contenu_commentaires">
+        <h3 class="text-center">Rubrique commentaires</h3> 
+        <div class="commentaires">
+            {% for commentaire in Post.commentaire %}
+                <article class="commentaire">
+                    <strong>{{ commentaire.getNom() }}</strong> a écrit le <em>{{ commentaire.getJourPublication|date('d/m/Y') }} :</em>
+                    <p>{{ commentaire.getReponse() }}</p>
+                    <hr>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="comment">
+        {% if is_granted('ROLE_USER') %}
+            <h3 class="text-center"> Votre commentaire </h3>  
+            {{ form_start(form) }}
+                <div class="mb-3 mx-3" id="user_ban">
+                    {{ form_label(form.user) }}
+                    {{ form_widget(form.user, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.user)}}
+                </div>
+                <div class="mb-3 mx-3">
+                    {{ form_label(form.nom) }}
+                    {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.nom)}}
+                </div>
+                <div class="mb-3 mx-3">
+                    {{ form_label(form.reponse) }}
+                    {{ form_widget(form.reponse, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.reponse)}}
+                </div>
+                <div class="mb-3 mx-3" id="user_ban">
+                    {{ form_label(form.jour_publication) }}
+                    {{ form_widget(form.jour_publication, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.jour_publication)}}
+                </div>
+
+                <button type="submit" class="mb-3 ms-3 btn btn-primary">Envoyer</button>
+            {{ form_end(form) }}
+        {% else %}
+            <div class="image_signup"><a href="{{ path('app_register') }}"><img class="img-fluid" src="{{ asset('/images/annexes/photo_signup.png') }}" alt="Inscrivez-vous"></a></div>
+        {% endif %}
+    </section>
+
+
+<style>
+.comment {
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#user_ban {
+    display: none;
+}
+
+.commentaires {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+.commentaire {
+
+}
+.contenu_commentaires {
+    border: none;
+    border-radius: 10% 10%;
+    background-color: #FFF4DA;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.image_signup {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 850px) {
+    .comment {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    .commentaires {
+        margin-top: 10px;
+        margin-bottom: 10px
+    }
+    .commentaire {
+
+    }
+    .contenu_commentaires {
+        border: none;
+        border-radius: 10% 10%;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    .image_signup {
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-bottom: 10px;
+    }
+}
+</style>
 
 {% endblock %}
 

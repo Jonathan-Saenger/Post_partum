@@ -37,7 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50)]
     private ?string $prenom = null;
 
-    #[ORM\OneToMany(mappedBy: 'commentaire', targetEntity: Commentaire::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Commentaire::class)]
     private Collection $commentaire;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Evenement::class)]
@@ -46,7 +46,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Post::class)]
     private Collection $post;
 
-    #[ORM\OneToMany(mappedBy: 'User', targetEntity: Contact::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Contact::class)]
     private Collection $contacts;
 
     public function __construct()
@@ -163,7 +163,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->commentaire->contains($commentaire)) {
             $this->commentaire->add($commentaire);
-            $commentaire->setCommentaire($this);
+            $commentaire->setUser($this);
         }
 
         return $this;
@@ -173,8 +173,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->commentaire->removeElement($commentaire)) {
             // set the owning side to null (unless already changed)
-            if ($commentaire->getCommentaire() === $this) {
-                $commentaire->setCommentaire(null);
+            if ($commentaire->getUser() === $this) {
+                $commentaire->setUser(null);
             }
         }
 
