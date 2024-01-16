@@ -10,10 +10,6 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Intl\Languages;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 \Locale::setDefault('en');
 $language = Languages::getName('fr');
@@ -26,17 +22,11 @@ class PostCrudController extends AbstractCrudController
         return Post::class;
     }
 
-    public function configureCrud(Crud $crud): Crud 
-    {
-        return $crud
-            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
-    }
-
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('titre');
         yield TextField::new('categorie');
-        yield TextareaField::new('article')->setFormType(CKEditorType::class);
+        yield TextareaField::new('article');
         yield TextareaField::new('imageFile')->setFormType(VichImageType::class);
         yield DateField::new('jour_redaction');
 
