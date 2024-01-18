@@ -9,7 +9,7 @@
     <article class="article">
         <p> Article publié le {{ Post.getJourRedaction|format_date('long', locale='fr')}} </p>
         <img id="image_post" class="imageFile" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
-        <p> {{ Post.getarticle( )}} </p>
+        <p> {{ Post.getarticle() | raw }} </p>
         <small>Catégorie : {{ Post.getcategorie}}</small>
     </article>
 
@@ -52,7 +52,7 @@
                     {{ form_errors(form.jour_publication)}}
                 </div>
 
-                <button type="submit" class="mb-3 ms-3 btn btn-primary">Envoyer</button>
+                <button type="submit" class="mb-3 ms-3 btn btn-success">Envoyer</button>
             {{ form_end(form) }}
         {% else %}
             <div class="image_signup"><a href="{{ path('app_register') }}"><img class="img-fluid" src="{{ asset('/images/annexes/photo_signup.png') }}" alt="Inscrivez-vous"></a></div>
