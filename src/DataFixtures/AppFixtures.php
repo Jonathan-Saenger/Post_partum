@@ -22,10 +22,10 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        //Création de 10 posts
-        for ($i = 0; $i < 10; $i++) {
+        //Création de 15 posts
+        for ($i = 0; $i < 15; $i++) {
             $post = new Post();
-            $post->setCategorie($this->faker->randomElement(['Allaitement','DMAE', 'Grossesse']))
+            $post->setCategorie($this->faker->randomElement(['Alimentation','Grossesse/Accouchement','Sommeil','Santé et bien-être bébé','Développement/Education','Bien-être Maman',]))
                 ->setTitre($this->faker->word(mt_rand(1, 3)))
                 ->setArticle($this->faker->paragraphs(2, true))
                 ->setJourRedaction($this->faker->dateTimeBetween('-5 week', '+1 week'));

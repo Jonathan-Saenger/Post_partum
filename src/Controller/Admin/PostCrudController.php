@@ -5,9 +5,11 @@ namespace App\Controller\Admin;
 use App\Entity\Post;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Intl\Languages;
 
@@ -25,8 +27,16 @@ class PostCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('titre');
-        yield TextField::new('categorie');
-        yield TextareaField::new('article');
+        yield ChoiceField::new('categorie')->setChoices([
+            'Grossesse/Accouchement' => 'Grossesse/Accouchement',
+            'Allaitement' => 'Allaitement',
+            'Alimentation' => 'Alimentation',
+            'Sommeil' => 'Sommeil',
+            'Santé et bien-être bébé' => 'Santé et bien-être bébé',
+            'Développement/Education' => 'Développement/Education',
+            'Bien-être Maman' => 'Bien-être Maman',
+        ]);
+        yield TextEditorField::new('article');
         yield TextareaField::new('imageFile')->setFormType(VichImageType::class);
         yield DateField::new('jour_redaction');
 

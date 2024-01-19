@@ -9,9 +9,13 @@
         <label for="choix_categorie"> Filtrer :</label>
         <select name="categorie" id="categorie-select">
             <option value="">--Tous les articles--</option>
-            <option value="Grossesse">Grossesse</option>
+            <option value="Grossesse/Accouchement">Grossesse/Accouchement</option>
             <option value="Allaitement">Allaitement</option>
-            <option value="DMAE">DMAE</option>
+            <option value="Alimentation">Alimentation</option>
+            <option value="Sommeil">Sommeil</option>
+            <option value="Santé et bien-être bébé">Santé et bien-être bébé</option>
+            <option value="Développement/Education">Développement/Education</option>
+            <option value="Bien-être Maman">Bien-être Maman</option>
         </select>
         <button 
             id="btnSubmit"
@@ -28,13 +32,12 @@
                 <img id="image_blog" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
                 <div class="article_texte">
                     <h3 > {{ Post.gettitre() }} </h3>
-                    <p > {{ Post.getarticle()|slice(0,350) }}</p>
+                    <p > {{ Post.getarticle()|striptags|slice(0,350)}}</p>
                     <p id="categorie"> {{ Post.getCategorie() }} </p>
                     <p> {{ Post.getJourRedaction|format_date('long', locale='fr') }} </p>
                     <center><a class="btn btn-secondary" href="{{ path('app_post', {'id': Post.id}) }}" target="_blank">Lire l'article</a></center>
                 </div>
             </article>
-        
         {% endfor %}
     </div>
 
