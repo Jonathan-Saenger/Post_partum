@@ -21,7 +21,7 @@ class EvenementCrudController extends AbstractCrudController
     {
         yield TextField::new('titre');
         yield TextEditorField::new('description');
-        yield TextareaField::new('imageFile')->setFormType(VichImageType::class);
+        yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
         yield DateField::new('date_creation');
 
     }

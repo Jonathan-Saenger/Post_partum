@@ -37,7 +37,7 @@ class PostCrudController extends AbstractCrudController
             'Bien-être Maman' => 'Bien-être Maman',
         ]);
         yield TextEditorField::new('article');
-        yield TextareaField::new('imageFile')->setFormType(VichImageType::class);
+        yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
         yield DateField::new('jour_redaction');
 
     }
