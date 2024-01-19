@@ -8,16 +8,15 @@
     <article class="bloc">
       <div class="text-bloc">
           <h2> Bienvenue sur le site Post Partum ! </h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet tristique sapien. 
-          Integer ultrices vulputate magna, vulputate mattis sem dapibus ut. Praesent luctus purus nec 
-          scelerisque congue. Curabitur urna purus, hendrerit a dictum rutrum, vestibulum eu nisi. 
-          Vivamus in rutrum odio. Integer interdum tempor sem, ac suscipit ex vestibulum at. Mauris vel
-          scelerisque purus. Vestibulum lobortis nibh et risus maximus, vitae volutpat mi aliquam.
-          Proin congue at lectus eget elementum. Proin ac aliquam ex. Maecenas hendrerit erat id enim
-          molestie egestas. <br> Donec faucibus gravida velit eu posuere. Praesent volutpat, ex sed efficitur 
-          varius, justo nibh mattis ante, id posuere ligula purus ullamcorper ante. Orci varius natoque
-          penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, 
-          consectetur adipiscing elit.<br><br>
+          <p> Bienvenue sur Post-partum, un espace dédié à l’écoute, au partage et à la bienveillance entre mamans. Nous croyons fermement que chaque maman mérite 
+          d’être soutenue et entendue, et c’est dans cet esprit que Post-partum a été créé.<br>
+          Post-partum est plus qu’un simple site web, c’est une communauté où les mamans peuvent se sentir comprises et soutenues à chaque étape de leur voyage de 
+          maternité. Que vous soyez enceinte, que vous veniez d’accoucher ou que vous soyez déjà maman, Post-partum est là pour vous.<br>
+          Sur notre site, vous trouverez des conseils et des ressources pour naviguer dans le merveilleux voyage de la maternité. De la grossesse à l’accouchement, 
+          de l’allaitement à l’éducation, nous couvrons tous les aspects de la vie de maman. Nous abordons également des sujets importants tels que le bien-être du 
+          bébé, le sommeil, la parentalité positive et le soutien aux parents.<br>
+          Chez Post-partum, nous croyons que chaque maman a une histoire unique à raconter. Nous vous invitons à partager votre expérience, à poser des questions et 
+          à soutenir d’autres mamans. Ensemble, nous pouvons faire de la maternité un voyage encore plus beau.<br><br>
           Je vous souhaite la bienvenue !</p>
       </div>
       <img id="image_presentation" src="{{ asset('/images/annexes/photo_presentationnew.png') }}" alt="">
@@ -30,7 +29,7 @@
           <img id="image_evenementindex" class="imageFile" src="{{ vich_uploader_asset(Evenement,'imageFile') }}" alt="Image Evènement">
             <div class="nouveau_bloc">  
               <h3> {{ Evenement.gettitre() }} </h3>
-              <p> {{ Evenement.getdescription()|slice(0, 300) }} ...
+              <p> {{ Evenement.getdescription()|striptags|slice(0, 300) }} ...
                 <a 
                   class="btn btn-light btn-sm" 
                   href="{{ path('app_evenement', {'id': Evenement.id}) }}" 

@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                 <img id="image_evenement" class="imageFile" src="{{ vich_uploader_asset(Evenement,'imageFile') }}" alt="Image Evènement">
-                <p class="card-text px-5 py-1">{{ Evenement.getdescription () }}</p>
+                <p class="card-text px-5 py-1">{{ Evenement.getdescription() | raw }}</p>
             <a href="{{path ('app_contact')}}" class="btn btn-primary">Contact</a>
             </div>
             <div class="card-footer text-body-secondary">
