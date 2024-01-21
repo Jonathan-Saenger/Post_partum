@@ -3,5 +3,81 @@
 {% block title %}Bienvenue sur ma page de présentation {% endblock %}
 
 {% block body %}
-Présentation de Léa
+
+<h2> Ma présentation </h2>
+
+<div class="containergeneral">
+
+    <img class="photobio" src="{{ asset('/images/annexes/photo_bio.png') }}" alt="Bienvenue sur le site Post-Partum">
+
+    <div class="containertexte"> 
+        <p> </p>
+
+        <p>Je m’appelle Léa, j’ai 32 ans, je suis mariée et je suis l’heureuse Maman d’une petite Elyne âgée de 17 mois.</p>
+
+        <p>La maternité a été et est encore un merveilleux bouleversement. Elle m’a permis de me révéler en tant que femme et en 
+        tant que Maman. Elle me donne l’occasion de me dépasser, de clarifier mes choix de vie, de me former au quotidien.</p>
+
+        <p>Avant la naissance d’Elyne, son papa et moi, avions construit un projet de naissance autour d’un accouchement 100% physiologique, 
+        nous avions suivi une merveilleuse formation créée par Naturelle Maman qui nous a permis d’aborder la naissance de notre fille plus 
+        sereinement. Bien sûr des appréhensions subsistaient et c’est normal… Lors d’un accouchement nous ne sommes maîtres de presque rien,
+        nous ne pouvons que lâcher prise et laisser les choses se faire naturellement… ce n’est pas chose facile mais heureusement la nature 
+        nous aide par la sécrétion d’hormones. J’approfondirai le sujet dans un de mes articles. </p>
+
+        <p>Durant la grossesse, nous nous étions préparés le mieux possible à la venue de notre fille, nous
+        avions notre propre vision sur différents domaines. Mais sa naissance a été suivie d’évènements que
+        nous n’avions alors pas prévus. Nous nous sommes retrouvés parfois démunis et isolés face à une
+        situation que notre entourage n’avait pas connu. Nous avons également constaté le manque
+        d’information globale par rapport au sommeil, à l’alimentation, au développement de l’enfant, aux
+        reflux gastro-œsophagiens et parfois même le manque d’accompagnement du corps médical (je ne 
+        fais là aucune généralité, il s’agit simplement de la situation que nous avons vécue factuellement).</p>
+
+        <p>Je me suis donc énormément informée, je me suis formée pour pouvoir à mon tour accompagner 
+        d’autres femmes, hommes et enfants à travers diverses pratiques formant un ensemble cohérent au 
+        service des parents et de leur(s) enfant(s). </p>
+
+        <p>Je vous souhaite une belle visite sur ce site. N’hésitez pas à écrire, j’échangerai avec vous avec grand 
+        plaisir ! </p>
+
+        <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{path('app_contact')}}">Vous pouvez me contacter directement</a>
+        <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{ path('app_blog') }}">ou contribuer directement dans le blog</a>
+    </div>
+
+</div>
+
+<style>
+
+    .photobio {
+        float: none;
+        display: block; 
+        margin-left: auto; 
+        margin-right: auto; 
+    }
+
+    .containergeneral {
+        margin: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+@media screen and (min-width: 550px) {
+        .containergeneral {
+        width: 70%;
+        margin: auto;
+    }
+
+    .containertexte {
+        margin-left: 2%;
+        padding-bottom: 10px;
+    }
+
+    .photobio {
+        float: right;
+        height: auto;
+        padding-left: 10px;
+    }
+}
+
+</style>
+
 {% endblock %}
