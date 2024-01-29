@@ -197,7 +197,8 @@ h2 {
 #image_blog {
     width: 326px;
     height: 214px;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 5px;
 }
 
