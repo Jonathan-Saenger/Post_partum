@@ -57,6 +57,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->contacts = new ArrayCollection();
     }
 
+    // Ajout manuelle de la fonction pour convertir les noms et prénomq en string dans le CRUD
+    public function __toString(): string    
+    {   
+    return $this->nom . ' ' . $this->prenom;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
