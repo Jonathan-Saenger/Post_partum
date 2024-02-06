@@ -28,8 +28,8 @@
         <div class="text-blocactu"> 
           <img id="image_evenementindex" class="imageFile" src="{{ vich_uploader_asset(Evenement,'imageFile') }}" alt="Image Evènement">
             <div class="nouveau_bloc">  
-              <h3> {{ Evenement.gettitre() }} </h3>
-              <p> {{ Evenement.getdescription()|striptags|slice(0, 300) }} ...
+              <h3 class="post_titre_accueil"> {{ Evenement.gettitre() }} </h3>
+              <p> {{ Evenement.getdescription()|striptags|slice(0, 400) }} ...
                 <a 
                   class="btn btn-light btn-sm" 
                   href="{{ path('app_evenement', {'id': Evenement.id}) }}" 
@@ -50,11 +50,10 @@
           {% for Post in Post %}
                   <img id="image_blogindex" class="img-fluid" src="{{ vich_uploader_asset(Post,'imageFile') }}" alt="Image blog">
                   <div class="texte_homeblog">
-                      <h3 class=""> {{ Post.gettitre() }} </h3>
-                      <p class=""> {{ Post.getarticle()|striptags|slice(0, 250)}}</p>
-                      <p> Catégorie: {{ Post.getcategorie()}}</p>
+                      <h3 class="post_titre_accueil"> {{ Post.gettitre() }} </h3>
+                      <p class=""> {{ Post.getarticle()|striptags|slice(0, 425)}}</p>
                       <p> Rédigé le {{ Post.getJourRedaction|format_date('long', locale='fr') }} </p>
-                      <center><a class="btn btn-secondary" href="{{ path('app_post', {'id': Post.id}) }}" target="_blank">Lire l'article</a></center>
+                      <center><a class="btn btn-secondary btn-sm" href="{{ path('app_post', {'id': Post.id}) }}" target="_blank">Lire la suite de l'article</a></center>
                   </div>
           {% endfor %}
         </div>
