@@ -12,13 +12,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class BlogController extends AbstractController
 {
     #[Route('/blog', name: 'app_blog')]
-    public function index(ManagerRegistry $doctrine, PostRepository $PostRepository): Response
+    public function index(PostRepository $PostRepository): Response
     {
-        $PostRepository = $doctrine->getRepository(Post::class);
-        $Post = $PostRepository->findBy([], ['jour_redaction' => 'DESC']);
-
         return $this->render('blog.html.twig', [
-            'Post' => $Post
+            'Post' => $Post = $PostRepository->findBy([], ['jour_redaction' => 'DESC'])
         ]);
     }
 }
