@@ -15,11 +15,11 @@ class BlogController extends AbstractController
     public function index(ManagerRegistry $doctrine, PostRepository $PostRepository): Response
     {
         $PostRepository = $doctrine->getRepository(Post::class);
-        $Post = $PostRepository->findAll();
+        $Post = $PostRepository->findBy([], ['jour_redaction' => 'DESC']);
 
         return $this->render('blog.html.twig', [
-            'controller_name' => 'BlogController',
             'Post' => $Post
         ]);
     }
 }
+

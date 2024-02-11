@@ -6,7 +6,6 @@ use App\Entity\Commentaire;
 use App\Entity\Post;
 use App\Form\CommentType;
 use App\Repository\PostRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
