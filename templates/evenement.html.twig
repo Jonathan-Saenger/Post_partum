@@ -7,7 +7,7 @@
     {% for Evenement in Evenement %}
         <div class="card text-center mx-5 my-3">
             <div class="card-header">
-                <h5 class="card-title">{{ Evenement.gettitre() }} </h5>
+                <h2 class="card-title">{{ Evenement.gettitre() }} </h2>
             </div>
             <div class="card-body">
                 <img id="image_evenement" class="imageFile" src="{{ vich_uploader_asset(Evenement,'imageFile') }}" alt="Image Evènement">
