@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Blog;
 use App\Entity\Post;
 use App\Entity\User;
 use App\Entity\Evenement;
