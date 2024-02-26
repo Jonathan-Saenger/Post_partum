@@ -404,3 +404,109 @@ ul li a {
     }
 }
 
+.cadreform {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+@media screen and (min-width: 850px) {
+.cadreform {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+}
+
+.faq {
+    width: 70%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    margin: auto;
+}
+
+/* RUBRIQUE POST */
+
+.comment {
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#user_ban {
+    display: none;
+}
+
+.commentaires {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.contenu_commentaires {
+    border: none;
+    border-radius: 10% 10%;
+    background-color: #FFF4DA;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.image_signup {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 850px) {
+    .comment {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    .commentaires {
+        margin-top: 10px;
+        margin-bottom: 10px
+    }
+
+    .contenu_commentaires {
+        border: none;
+        border-radius: 10% 10%;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    .image_signup {
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-bottom: 10px;
+    }
+}
+
+/* RUBRIQUE PRESENTATION */
+
+
+.photobio {
+    float: none;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.containergeneral {
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+@media screen and (min-width: 550px) {
+    .containergeneral {
+    width: 70%;
+    margin: auto;
+}
+
+.containertexte {
+    margin-left: 2%;
+    padding-bottom: 10px;
+}
+
+.photobio {
+    float: right;
+    height: auto;
+    padding-left: 10px;
+}
+}
+
