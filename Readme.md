@@ -79,3 +79,6 @@ Copier le fichier .env en .env.local et configurez votre base de données
    symfony server:start
    ```
 6. Démo & Captures
+<p align="center">
+  <img src="public/images/annexes/image_principale_post_partum.png" alt="Image principale du blog Post-partum" width="600"/>
+</p>
